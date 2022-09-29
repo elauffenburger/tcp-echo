@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"io"
 	"log"
 	"net"
@@ -37,7 +38,7 @@ func main() {
 			rdr := bufio.NewReader(conn)
 
 			str, err := rdr.ReadString('\n')
-			if err != nil {
+			if err != nil && !errors.Is(err, io.EOF) {
 				l.Printf("error reading payload: %s\n", err)
 				return
 			}
