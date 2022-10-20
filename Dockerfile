@@ -1,4 +1,13 @@
 FROM golang as builder
+
+ARG SIMPLE
+ARG SPECIAL
+ARG SPACES
+
+RUN echo "$SIMPLE"
+RUN echo "$SPECIAL"
+RUN echo "$SPACES"
+
 WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download
