@@ -23,6 +23,8 @@ func main() {
 		panic(err)
 	}
 
+	fixedResponse := os.Getenv("TCP_ECHO_RESPONSE")
+
 	l.Printf("listening on %s\n", srv.Addr())
 
 	for {
@@ -45,7 +47,14 @@ func main() {
 
 			l.Printf("%s", str)
 
-			n, err := io.Copy(conn, strings.NewReader(str))
+			var response string
+			if fixedResponse != "" {
+				response = fixedResponse
+			} else {
+				response = str
+			}
+
+			n, err := io.Copy(conn, strings.NewReader(response))
 			if err != nil {
 				l.Printf("error writing payload: %s\n", err)
 				return
