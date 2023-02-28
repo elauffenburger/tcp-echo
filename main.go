@@ -60,8 +60,8 @@ func main() {
 				return
 			}
 
-			if n != int64(len(str)) {
-				l.Printf("only wrote %d/%d bytes\n", n, len(str))
+			if n != int64(len(response)) {
+				l.Printf("only wrote %d/%d bytes\n", n, len(response))
 				return
 			}
 
