@@ -6,3 +6,4 @@ services:
   name: tcp-echo
   env: docker
   branch: main
+  healthCheckPath: /health
