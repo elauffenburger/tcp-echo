@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-echo 'just saying hi!'
+echo 'this is going to fail oh nooooes'
+exit 1
