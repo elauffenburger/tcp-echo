@@ -1,0 +1,8 @@
+previewsEnabled: true
+services:
+- type: web
+  autoDeploy: true
+  initialDeployHook: ./bin/dephook.sh
+  name: tcp-echo
+  env: docker
+  branch: main
