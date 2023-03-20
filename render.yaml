@@ -7,3 +7,6 @@ services:
   env: docker
   branch: main
   healthCheckPath: /health
+  envVars:
+    - key: PORT
+      value: 80
