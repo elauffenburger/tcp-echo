@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tcp-echo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tcp-echo
+  template:
+    metadata:
+      labels:
+        app: tcp-echo
+    spec:
+      containers:
+        - name: tcp-echo
+          # image provided by kustomize overlay
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config
+              mountPath: /config-data
+      volumes:
+        - name: config
+          configMap:
+            name: config-txt

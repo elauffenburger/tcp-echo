@@ -1,0 +1,5 @@
+namespace: my-project-dev
+resources:
+  - ../../base
+patches:
+  - path: deployment.yaml

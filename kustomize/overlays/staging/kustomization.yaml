@@ -1,0 +1,10 @@
+namespace: my-project-staging
+resources:
+  - ../../base
+patches:
+  - path: deployment.yaml
+configMapGenerator:
+  - name: config-txt
+    behavior: replace
+    files:
+      - config.txt
